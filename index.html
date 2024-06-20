@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wilsons Weather</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script type="module" src="scripts/script.js" defer></script>
+</head>
+<body>
+  <div class="grid-main">
+    <!-- Navbar -->
+    <div class="navbar glass-effect"></div>
+    <div class="navbar-content">
+      <div class="logo">
+        <img src="public/weather-day/partly-sunny-day.png" alt="">
+        <h1 class="title-text">Wilson's Weather</h1>
+      </div>
+        <form id="search-form">
+          <input type="text" id="location-search" placeholder="Search location">
+        </form>
+    </div>
+    <!-- Current Weather -->
+    <div class="current glass-effect">
+      <div class="current-header header">
+        Current Weather
+        <div id="currentTime"></div>
+      </div>
+      <div class="current-body">
+        <!-- Current weather goes here -->
+      </div>
+    </div>
+    <!-- Hourly Weather -->
+    <div class="hourly glass-effect">
+      <div class="blur-effect">
+        <div class="header">
+          Hourly Forecast
+          <div id="currentDate"></div>
+        </div>
+        <div class="hourly-body">
+          <!-- Hourly forecast goes here -->
+        </div>
+      </div>
+    </div>
+    <!-- Weekly Forecast -->
+    <div class="weekly glass-effect">
+      <div class="header">
+        Weekly Forecast
+        <div id="currentWeek"></div>
+      </div>
+      <div class="weekly-body body-text">
+        <!-- Weekly forecast goes here -->
+      </div>
+    </div>
+  </div> 
+  <script src="/client/scripts/mobile.js"></script>
+</body>
+</html>
