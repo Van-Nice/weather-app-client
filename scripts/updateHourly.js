@@ -76,7 +76,7 @@ export function updateHourly(weatherData, weatherCodeToImageMap) {
         hourlyHTML += `
           <div class="scroll-hour title-text-setrise">
             <h2 class="title-text">${new Date(currentSetRiseUnix * 1000).toLocaleTimeString('en-US', riseSetOptions)}</h2>
-            <img src="${(riseSet.length%2 === 0) ? "/client/public/weather-day/sun-day.png" : "/client/public/weather-night/clear-night.png"}" alt="Weather icon">
+            <img src="${(riseSet.length%2 === 0) ? "../public/weather-day/sun-day.png" : "../public/weather-night/clear-night.png"}" alt="Weather icon">
             <p>${(riseSet.length%2 === 0) ? "Sunrise" : "Sunset"}</p>
           </div>
         `;
