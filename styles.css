@@ -274,7 +274,7 @@ body {
 .day-sun-set-rise {
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
+    flex-shrink: 2;
 }
 
 .day-night {
