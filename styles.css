@@ -309,6 +309,11 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
+@media (max-width: 420px) {
+    .day-sun-set-rise {
+        display: none;
+    }
+}
 
 /* Phones */
 @media (max-width: 600px) {
@@ -317,8 +322,15 @@ body {
         grid-template-columns: [one] .25fr [two] 12fr [three] .25fr [four];
     }
 
-    .day-description, .day-sun-set-rise, .day-high-low, .day-date, .day img{
+    .day-description, .day-sun-set-rise, .day-high-low, .day-date {
         flex-shrink: 1;
+        font-size: 14px;
+    }
+
+    .day img {
+        flex-shrink: 1;
+        width: 50px; /* Adjust this value to your needs */
+        height: auto;
     }
 
     /* .current, .hourly, .weekly {
