@@ -10,8 +10,8 @@ body {
 /* Main section */
 .grid-main {
     display: grid;
-    grid-template-columns: [one] 1fr [two] 12fr [three] 1fr [four];
-    grid-template-rows: [one] 100px [two] 150px [three] 200ps [four] 1100px [five] 100px [six];
+    grid-template-columns: [one] 1fr [two] 8fr [three] 1fr [four];
+    grid-template-rows: [one] 100px [two] 150px [three] 200px [four] 1100px [five] 100px [six];
     grid-template-areas: '. nav .'
                          '. current .'
                          '. hourly .'
@@ -314,8 +314,7 @@ body {
 /* Phones */
 @media (max-width: 600px) {
     .grid-main {
-        /* grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six]; */
-        grid-template-columns: [one] 1fr [two] minmax(200px, auto) [three] 1fr [four];
+        grid-template-columns: [one] .25fr [two] 12fr [three] .25fr [four];
     }
 
     .day-description {
@@ -341,41 +340,9 @@ body {
     }
 }
 
-/* Tablets */
-@media (max-width: 768px) {
-    .grid-main {
-        grid-template-columns: [one] 1fr [two] minmax(6fr, 80vw) [three] 1fr [four];
-    }
-    #search-form, #dropdown {
-        width: 300px;
-    }
-}
-
-/* desktops */
-@media (max-width: 992px) {
-    .grid-main {
-        grid-template-columns: [one] 1fr [two] minmax(500px, 80vw) [three] 1fr [four];
-    }
-
-    #search-form, #dropdown {
-        width: 250px;
-    }
-
-    .day-night {
-        display: none;
-    }
-
-}
-
-/* desktops */
-@media (min-width: 992px) {
-    .grid-main {
-        grid-template-columns: [one] 1fr [two] minmax(700px, 6fr) [three] 1fr [four];
-    }
-}
 
 /* Extra large devices */
-@media (min-width: 1201px) {
+@media (max-width: 1200px) {
     .grid-main {
         grid-template-columns: [one] 1fr [two] 1000px [three] 1fr [four];
     }
