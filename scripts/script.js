@@ -4,7 +4,7 @@ import { updateTime } from './timeDate.js';
 import { updateCurrent } from './updateCurrent.js';
 
 // This is unsecure fix at some point!!!
-const API_BASE_URL = 'https://weather-app-server-d5459d7e5648.herokuapp.com'
+const API_BASE_URL = 'https://weather-app-server-staging-e194f8aa2d04.herokuapp.com';
 
 async function startWeather(latitude, longitude) {
     const response = await fetch(`${API_BASE_URL}/?coords=${latitude},${longitude}`);
