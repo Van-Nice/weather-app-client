@@ -314,7 +314,7 @@ body {
 /* Phones */
 @media (max-width: 600px) {
     .grid-main {
-        grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six];
+        /* grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six]; */
         grid-template-columns: [one] 1fr [two] minmax(200px, auto) [three] 1fr [four];
     }
 
