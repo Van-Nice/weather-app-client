@@ -10,8 +10,8 @@ body {
 /* Main section */
 .grid-main {
     display: grid;
-    grid-template-columns: [one] 1fr [two] minmax(200px, 60vw) [three] 1fr [four];
-    grid-template-rows: [one] 100px [two] auto [three] auto [four] auto [five] 100px [six];
+    grid-template-columns: [one] 1fr [two] 12fr [three] 1fr [four];
+    grid-template-rows: [one] 100px [two] 150px [three] 200ps [four] 1100px [five] 100px [six];
     grid-template-areas: '. nav .'
                          '. current .'
                          '. hourly .'
