@@ -359,7 +359,7 @@ body {
 }
 
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .grid-main {
         grid-template-columns: [one] 1fr [two] 80vw [three] 1fr [four];
     }
@@ -375,7 +375,7 @@ body {
     .grid-main {
         grid-template-columns: [one] 1fr [two] minmax(700px, 6fr) [three] 1fr [four];
     }
-} */
+}
 
 
 @media (min-width: 1201px) {
