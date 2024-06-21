@@ -317,7 +317,7 @@ body {
         grid-template-columns: [one] .25fr [two] 12fr [three] .25fr [four];
     }
 
-    .day-description {
+    .day-description, .day-sun-set-rise, .day-high-low, .day-date, .day img{
         flex-shrink: 1;
     }
 
