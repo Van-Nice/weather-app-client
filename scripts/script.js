@@ -8,7 +8,7 @@ const API_BASE_URL = 'https://weather-app-server-staging-e194f8aa2d04.herokuapp.
 
 async function startWeather(latitude, longitude) {
     try {
-        const response = await fetch(`${API_BASE_URL}/?coords=${latitude},${longitude}`);
+        const response = await fetch(`${API_BASE_URL}/start-weather-data?coords=${latitude},${longitude}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -16,7 +16,7 @@ async function startWeather(latitude, longitude) {
         console.log(weatherData);
         return weatherData;
     } catch (error) {
-        console.error('An error occurred:', error);
+        console.error('An error occurred:', error); // This is getting called!!!
         throw error; // re-throw the error if you want it to propagate
     }
 }
@@ -59,7 +59,7 @@ if (navigator.geolocation) {
         async function(position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-            const weatherData = await startWeather(latitude, longitude);
+            const weatherData = await startWeather(latitude, longitude); // This is causing an error
             console.log(weatherData);
             updateWeather(weatherData, 'Your Location');
             updateTime(weatherData);
