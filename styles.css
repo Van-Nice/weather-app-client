@@ -243,7 +243,8 @@ body {
     justify-content: center;
     height: auto;
     flex-shrink: 0;
-    width: 75px;
+    width: 100%; /* Full width on small screens */
+    max-width: 75px; /* But no more than 75px on large screens */
 }
 
 .day-date {
@@ -252,14 +253,16 @@ body {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    width: 75px;
+    width: 100%;
+    max-width: 75px;
 }
 
 .day-high-low {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    width: 50px;
+    width: 100%;
+    max-width: 50px;
 }
 
 .day-description {
@@ -268,7 +271,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    width: 175px;
+    width: 100%;
+    max-width: 175px;
     margin-left: -20px;
 }
 
@@ -282,7 +286,8 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    width: 100px;
+    width: 100%;
+    max-width: 100px;
 }
 
 .shadow {
@@ -315,7 +320,7 @@ body {
 @media (max-width: 600px) {
     .grid-main {
         grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six];
-        grid-template-columns: [one] 1fr [two] minmax(250px, 8fr) [three] 1fr [four];
+        grid-template-columns: [one] 1fr [two] minmax(50px, 1fr) [three] 1fr [four];
     }
 
     .day-description {
