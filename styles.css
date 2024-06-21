@@ -314,7 +314,7 @@ body {
 @media (max-width: 600px) {
     .grid-main {
         grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six];
-        grid-template-columns: [one] .25fr [two] 12fr [three] .25fr [four];
+        grid-template-columns: [one] .25fr [two]  [three] .25fr [four];
     }
 
     .day-description, .day-sun-set-rise, .day-high-low, .day-date {
@@ -360,14 +360,21 @@ body {
 
 
 /* desktops */
-@media (min-width: 992px) {
+@media (max-width: 992px) {
     .grid-main {
         grid-template-columns: [one] 1fr [two] 6fr [three] 1fr [four];
     }
 }
 
 /* Extra large devices */
-@media (min-width: 1201px) {
+/* @media (max-width: 1200px) {
+    .grid-main {
+        grid-template-columns: [one] 1fr [two] 70vw [three] 1fr [four];
+    }
+} */
+
+/* Extra large devices */
+@media (min-width: 1200px) {
     .grid-main {
         grid-template-columns: [one] 1fr [two] 1000px [three] 1fr [four];
     }
