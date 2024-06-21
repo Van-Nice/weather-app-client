@@ -15,11 +15,15 @@ async function startWeather(latitude, longitude) {
 
 // Create get ip function
 async function getIP() {
-    return await fetch(`${API_BASE_URL}/get-ip`);
+    return await fetch(`${API_BASE_URL}/get-ip`, {
+        credentials: 'include'
+    });
 }
 
 async function ipWeather(ip) {
-    const response = await fetch(`${API_BASE_URL}/ip-weather-data?ip=${ip}`);
+    const response = await fetch(`${API_BASE_URL}/ip-weather-data?ip=${ip}`, {
+        credentials: 'include'
+    });
     const weatherData = await response.json();
     return weatherData;
 }
@@ -88,7 +92,9 @@ searchBar.addEventListener('input', async function(event) {
 
     if (userInput.length > 2) { // Trigger autocomplete after 2 char
         try {
-            const response = await fetch(`${API_BASE_URL}/search-locations?input=${encodeURIComponent(userInput)}`);
+            const response = await fetch(`${API_BASE_URL}/search-locations?input=${encodeURIComponent(userInput)}`, {
+                credentials: 'include'
+            });
             const data = await response.json();
             dropdown.innerHTML = ''; // Clear previous suggestions
 
@@ -121,7 +127,9 @@ searchForm.addEventListener('submit', async function(event) {
         searchBar.value = '';
 
         // Send a request to the server with the user input
-        const response = await fetch(`${API_BASE_URL}/weather-data?input=${encodeURIComponent(userSubmission)}`);
+        const response = await fetch(`${API_BASE_URL}/weather-data?input=${encodeURIComponent(userSubmission)}`, {
+            credentials: 'include'
+        });
         const weatherData = await response.json();
         
         // Handle the response data here
