@@ -314,7 +314,7 @@ body {
 @media (max-width: 600px) {
     .grid-main {
         grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six];
-        grid-template-columns: [one] 1fr [two] 12fr [three] 1fr [four];
+        grid-template-columns: [one] .25fr [two] 12fr [three] .25fr [four];
     }
 
     .day-description {
@@ -343,7 +343,7 @@ body {
 /* Tablets */
 @media (max-width: 768px) {
     .grid-main {
-        grid-template-columns: [one] 1fr [two] 80vw [three] 1fr [four];
+        grid-template-columns: [one] 1fr [two] 85vw [three] 1fr [four];
     }
     #search-form, #dropdown {
         width: 300px;
