@@ -22,7 +22,7 @@ async function startWeather(latitude, longitude) {
 }
 
 // Create get ip function
-async function getIP() {
+async function getIp() {
     try {
         const response = await fetch(`${API_BASE_URL}/get-ip`, {
             credentials: 'include'
@@ -48,7 +48,7 @@ async function ipWeather(ip) {
         const weatherData = await response.json();
         return weatherData;
     } catch (error) {
-        console.error('An error occurred:', error);
+        console.error('An error occurred:', error); // This error is getting thrown!!!
         throw error; // re-throw the error if you want it to propagate
     }
 }
@@ -59,7 +59,7 @@ if (navigator.geolocation) {
         async function(position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-            const weatherData = await startWeather(latitude, longitude); // This is causing an error
+            const weatherData = await startWeather(latitude, longitude); // Fixed this error
             console.log(weatherData);
             updateWeather(weatherData, 'Your Location');
             updateTime(weatherData);
@@ -74,7 +74,7 @@ if (navigator.geolocation) {
                 updateWeather(weatherData, 'Your Location');
                 updateTime(weatherData);
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error:', error); // This error is getting thrown
             }
         }
     );
