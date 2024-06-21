@@ -2,30 +2,55 @@ import { updateWeather } from './weather.js';
 import { getIp } from './getIp.js';
 import { updateTime } from './timeDate.js';
 import { updateCurrent } from './updateCurrent.js';
-
+// https://weather-app-server-staging-e194f8aa2d04.herokuapp.com/
 // This is unsecure fix at some point!!!
 const API_BASE_URL = 'https://weather-app-server-staging-e194f8aa2d04.herokuapp.com';
 
 async function startWeather(latitude, longitude) {
-    const response = await fetch(`${API_BASE_URL}/?coords=${latitude},${longitude}`);
-    const weatherData = await response.json()
-    console.log(weatherData);
-    return weatherData;
+    try {
+        const response = await fetch(`${API_BASE_URL}/?coords=${latitude},${longitude}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const weatherData = await response.json();
+        console.log(weatherData);
+        return weatherData;
+    } catch (error) {
+        console.error('An error occurred:', error);
+        throw error; // re-throw the error if you want it to propagate
+    }
 }
 
 // Create get ip function
 async function getIP() {
-    return await fetch(`${API_BASE_URL}/get-ip`, {
-        credentials: 'include'
-    });
+    try {
+        const response = await fetch(`${API_BASE_URL}/get-ip`, {
+            credentials: 'include'
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('An error occurred:', error);
+        throw error; // re-throw the error if you want it to propagate
+    }
 }
 
 async function ipWeather(ip) {
-    const response = await fetch(`${API_BASE_URL}/ip-weather-data?ip=${ip}`, {
-        credentials: 'include'
-    });
-    const weatherData = await response.json();
-    return weatherData;
+    try {
+        const response = await fetch(`${API_BASE_URL}/ip-weather-data?ip=${ip}`, {
+            credentials: 'include'
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const weatherData = await response.json();
+        return weatherData;
+    } catch (error) {
+        console.error('An error occurred:', error);
+        throw error; // re-throw the error if you want it to propagate
+    }
 }
 
 // Ask for location, if not get ip
