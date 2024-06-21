@@ -1,6 +1,5 @@
 import { updateWeather } from './weather.js';
 import { updateTime } from './timeDate.js';
-import { updateCurrent } from './updateCurrent.js';
 // https://weather-app-server-staging-e194f8aa2d04.herokuapp.com/
 // This is unsecure fix at some point!!!
 const API_BASE_URL = 'https://weather-app-server-staging-e194f8aa2d04.herokuapp.com';
@@ -20,25 +19,9 @@ async function startWeather(latitude, longitude) {
     }
 }
 
-// Create get ip function
-async function getIp() {
+async function ipWeather() {
     try {
-        const response = await fetch(`${API_BASE_URL}/get-ip`, {
-            credentials: 'include'
-        });
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('An error occurred:', error);
-        throw error; // re-throw the error if you want it to propagate
-    }
-}
-
-async function ipWeather(ip) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/ip-weather-data?ip=${ip}`, {
+        const response = await fetch(`${API_BASE_URL}/ip-weather-data`, {
             credentials: 'include'
         });
         if (!response.ok) {
@@ -51,8 +34,7 @@ async function ipWeather(ip) {
         throw error; // re-throw the error if you want it to propagate
     }
 }
-// Get user ip address
-const ip = await getIp();
+
 // Ask for location, if not get ip
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -68,7 +50,7 @@ if (navigator.geolocation) {
             // This function is called when an error occurs, such as when the user denies the location permission
             console.log("Geolocation permission denied.");
             try {
-                const weatherData = await ipWeather(ip);
+                const weatherData = await ipWeather();
                 console.log(ip, weatherData);
                 updateWeather(weatherData, 'Your Location');
                 updateTime(weatherData);
@@ -81,8 +63,8 @@ if (navigator.geolocation) {
     console.log("Geolocation is not supported by this browser.");
     (async () => {
         try {
-            const weatherData = await ipWeather(ip);
-            console.log(ip, weatherData);
+            const weatherData = await ipWeather();
+            console.log(weatherData);
             updateWeather(weatherData, 'Your Location');
             updateTime(weatherData);
         } catch (error) {
