@@ -10,7 +10,7 @@ body {
 /* Main section */
 .grid-main {
     display: grid;
-    grid-template-columns: [one] 1fr [two] minmax(200px, 60vw) [three] 1fr [four];
+    grid-template-columns: [one] 1fr [two] 80vw [three] 1fr [four];
     grid-template-rows: [one] 100px [two] auto [three] auto [four] auto [five] 100px [six];
     grid-template-areas: '. nav .'
                          '. current .'
@@ -321,10 +321,10 @@ body {
         flex-shrink: 1;
     }
 
-    .current, .hourly, .weekly {
+    /* .current, .hourly, .weekly {
         margin-left: 10px;
         margin-right: 10px;
-    }
+    } */
 
     .navbar-content {
         flex-direction: column;
@@ -335,9 +335,9 @@ body {
     .day-night {
         display: none;
     }
-    #search-form, #dropdown {
+    /* #search-form, #dropdown {
         width: 100%;
-    }
+    } */
 }
 
 /* Tablets */
@@ -355,7 +355,7 @@ body {
 /* desktops */
 @media (min-width: 992px) {
     .grid-main {
-        grid-template-columns: [one] 1fr [two] minmax(700px, 6fr) [three] 1fr [four];
+        grid-template-columns: [one] 1fr [two] 6fr [three] 1fr [four];
     }
 }
 
