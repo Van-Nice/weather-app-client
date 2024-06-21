@@ -10,8 +10,8 @@ body {
 /* Main section */
 .grid-main {
     display: grid;
-    grid-template-columns: [one] 1fr [two] 8fr [three] 1fr [four];
-    grid-template-rows: [one] 100px [two] 150px [three] 200px [four] 1100px [five] 100px [six];
+    grid-template-columns: [one] 1fr [two] minmax(200px, 60vw) [three] 1fr [four];
+    grid-template-rows: [one] 100px [two] auto [three] auto [four] auto [five] 100px [six];
     grid-template-areas: '. nav .'
                          '. current .'
                          '. hourly .'
@@ -35,8 +35,8 @@ body {
     color: #ffffff; 
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.488), 0px 2px 4px rgba(0, 0, 0, 0.427); 
     white-space: nowrap; /* Prevents the text from wrapping */
-    overflow: hidden; /* Hides the text that overflows the container */
-    text-overflow: ellipsis; /* Adds an ellipsis when the text overflows */
+    overflow: hidden; 
+
     min-width: 100px;
 }
 
@@ -186,7 +186,7 @@ body {
 
 .hourly-body {
     display: flex;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     
 }
 
@@ -314,7 +314,8 @@ body {
 /* Phones */
 @media (max-width: 600px) {
     .grid-main {
-        grid-template-columns: [one] .25fr [two] 12fr [three] .25fr [four];
+        grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six];
+        grid-template-columns: [one] 1fr [two] 12fr [three] 1fr [four];
     }
 
     .day-description {
@@ -340,9 +341,27 @@ body {
     }
 }
 
+/* Tablets */
+@media (max-width: 768px) {
+    .grid-main {
+        grid-template-columns: [one] 1fr [two] 80vw [three] 1fr [four];
+    }
+    #search-form, #dropdown {
+        width: 300px;
+    }
+}
+
+
+
+/* desktops */
+@media (min-width: 992px) {
+    .grid-main {
+        grid-template-columns: [one] 1fr [two] minmax(700px, 6fr) [three] 1fr [four];
+    }
+}
 
 /* Extra large devices */
-@media (max-width: 1200px) {
+@media (min-width: 1201px) {
     .grid-main {
         grid-template-columns: [one] 1fr [two] 1000px [three] 1fr [four];
     }
