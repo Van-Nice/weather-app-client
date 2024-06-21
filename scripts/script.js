@@ -31,6 +31,7 @@ if (navigator.geolocation) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             const weatherData = await startWeather(latitude, longitude);
+            console.log(weatherData);
             updateWeather(weatherData, 'Your Location');
             updateTime(weatherData);
         },
@@ -40,6 +41,7 @@ if (navigator.geolocation) {
             try {
                 const ip = await getIp();
                 const weatherData = await ipWeather(ip);
+                console.log(ip, weatherData);
                 updateWeather(weatherData, 'Your Location');
                 updateTime(weatherData);
             } catch (error) {
@@ -53,6 +55,7 @@ if (navigator.geolocation) {
         try {
             const ip = await getIp();
             const weatherData = await ipWeather(ip);
+            console.log(ip, weatherData);
             updateWeather(weatherData, 'Your Location');
             updateTime(weatherData);
         } catch (error) {
