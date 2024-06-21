@@ -51,7 +51,7 @@ if (navigator.geolocation) {
             console.log("Geolocation permission denied.");
             try {
                 const weatherData = await ipWeather();
-                console.log(ip, weatherData);
+                console.log(weatherData);
                 updateWeather(weatherData, 'Your Location');
                 updateTime(weatherData);
             } catch (error) {
