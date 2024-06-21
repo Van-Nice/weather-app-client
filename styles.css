@@ -309,11 +309,6 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-@media (max-width: 420px) {
-    .day-sun-set-rise {
-        display: none;
-    }
-}
 
 /* Phones */
 @media (max-width: 600px) {
@@ -344,9 +339,9 @@ body {
         padding: 20px;
     }
 
-    /* .day-night {
+    .day-night {
         display: none;
-    } */
+    }
     /* #search-form, #dropdown {
         width: 100%;
     } */
