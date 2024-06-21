@@ -367,11 +367,11 @@ body {
 }
 
 /* Extra large devices */
-/* @media (max-width: 1200px) {
+@media (max-width: 1200px) {
     .grid-main {
         grid-template-columns: [one] 1fr [two] 70vw [three] 1fr [four];
     }
-} */
+}
 
 /* Extra large devices */
 @media (min-width: 1200px) {
