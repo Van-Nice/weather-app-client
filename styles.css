@@ -10,7 +10,7 @@ body {
 /* Main section */
 .grid-main {
     display: grid;
-    grid-template-columns: [one] 1fr [two] 80vw [three] 1fr [four];
+    grid-template-columns: [one] 3vw [two] 94vw [three] 3vw [four];
     grid-template-rows: [one] 100px [two] auto [three] auto [four] auto [five] 100px [six];
     grid-template-areas: '. nav .'
                          '. current .'
@@ -255,10 +255,19 @@ body {
 }
 
 .day-high-low {
+    white-space: nowrap;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 0;
     width: 50px;
+}
+
+.day-high-low p {
+    padding-top: 5px;
+    padding-right: 5px;
+    font-size: 12px;
 }
 
 .day-description {
@@ -271,10 +280,16 @@ body {
     margin-left: -20px;
 }
 
+.day-date-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .day-sun-set-rise {
     display: flex;
     flex-direction: column;
-    flex-shrink: 2;
 }
 
 .day-night {
@@ -282,6 +297,13 @@ body {
     flex-direction: column;
     flex-shrink: 0;
     width: 100px;
+}
+
+.sunrise, .sunset {
+    display: flex;
+    float: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .shadow {
@@ -309,73 +331,45 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-
-/* Phones */
 @media (max-width: 600px) {
-    .grid-main {
-        grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six];
-        grid-template-columns: [one] .25fr [two]  [three] .25fr [four];
-    }
-
-    .day-description, .day-sun-set-rise, .day-high-low, .day-date {
+    .weekly-body {
         flex-shrink: 1;
-        font-size: 14px;
-    }
-
-    .day img {
-        flex-shrink: 1;
-        width: 50px; /* Adjust this value to your needs */
-        height: auto;
-    }
-
-    /* .current, .hourly, .weekly {
-        margin-left: 10px;
-        margin-right: 10px;
-    } */
-
-    .navbar-content {
-        flex-direction: column;
-        justify-content: center;
-        padding: 20px;
+        font-size: 16px;
     }
 
     .day-night {
         display: none;
     }
-    /* #search-form, #dropdown {
-        width: 100%;
-    } */
-}
 
-/* Tablets */
-@media (max-width: 768px) {
-    .grid-main {
-        grid-template-columns: [one] 1fr [two] 85vw [three] 1fr [four];
+    .day-date {
+        width: 50px;
+        padding-left: 10px;
     }
-    #search-form, #dropdown {
-        width: 300px;
+
+    .day-high-low {
+        padding-left: 20px;
+        font-size: 10px;
     }
-}
 
-
-
-/* desktops */
-@media (max-width: 992px) {
-    .grid-main {
-        grid-template-columns: [one] 1fr [two] 6fr [three] 1fr [four];
+    .day-description {
+        width: 135px;
+        align-content: center;
+        font-size: 14px;
+        padding-left: 10px;
     }
-}
 
-/* Extra large devices */
-@media (max-width: 1200px) {
-    .grid-main {
-        grid-template-columns: [one] 1fr [two] 70vw [three] 1fr [four];
+    .day-sun-set-rise {
+        font-size: 12px;
+        flex-direction: column;
+        row-gap: 10px;
     }
-}
 
-/* Extra large devices */
-@media (min-width: 1200px) {
-    .grid-main {
-        grid-template-columns: [one] 1fr [two] 1000px [three] 1fr [four];
+    .sunrise {
+        flex-direction: column;
     }
+
+    .sunset {
+        flex-direction: column;
+    }
+
 }
