@@ -58,7 +58,6 @@ export function updateHourly(weatherData, weatherCodeToImageMap) {
         <img src="${image}" alt="Weather icon">
         <p>${kelvinToFahrenheit(forecast.temp)}°F</p>
       </div>`;
-
       
       const currentSetRiseUnix = riseSet[riseSet.length - 1];
       const currentSetRiseHour = new Date(currentSetRiseUnix * 1000)

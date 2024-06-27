@@ -1,27 +1,37 @@
 import { updateWeather } from './weather.js';
-import { getIp } from './getIp.js';
 import { updateTime } from './timeDate.js';
-import { updateCurrent } from './updateCurrent.js';
-
+// https://weather-app-server-staging-e194f8aa2d04.herokuapp.com/
 // This is unsecure fix at some point!!!
-const API_BASE_URL = 'https://weather-app-server-d5459d7e5648.herokuapp.com'
-
+const API_BASE_URL = 'https://weather-app-server-staging-e194f8aa2d04.herokuapp.com';
 async function startWeather(latitude, longitude) {
-    const response = await fetch(`${API_BASE_URL}/?coords=${latitude},${longitude}`);
-    const weatherData = await response.json()
-    console.log(weatherData);
-    return weatherData;
+    try {
+        const response = await fetch(`${API_BASE_URL}/start-weather-data?coords=${latitude},${longitude}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const weatherData = await response.json();
+        console.log(weatherData);
+        return weatherData;
+    } catch (error) {
+        console.error('An error occurred:', error); // This is getting called!!!
+        throw error; // re-throw the error if you want it to propagate
+    }
 }
 
-// Create get ip function
-async function getIP() {
-    return await fetch(`${API_BASE_URL}/get-ip`);
-}
-
-async function ipWeather(ip) {
-    const response = await fetch(`${API_BASE_URL}/ip-weather-data?ip=${ip}`);
-    const weatherData = await response.json();
-    return weatherData;
+async function ipWeather() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/ip-weather-data`, {
+            credentials: 'include'
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const weatherData = await response.json();
+        return weatherData;
+    } catch (error) {
+        console.error('An error occurred:', error); // This error is getting thrown!!!
+        throw error; // re-throw the error if you want it to propagate
+    }
 }
 
 // Ask for location, if not get ip
@@ -30,7 +40,8 @@ if (navigator.geolocation) {
         async function(position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-            const weatherData = await startWeather(latitude, longitude);
+            const weatherData = await startWeather(latitude, longitude); // Fixed this error
+            console.log(weatherData);
             updateWeather(weatherData, 'Your Location');
             updateTime(weatherData);
         },
@@ -38,12 +49,12 @@ if (navigator.geolocation) {
             // This function is called when an error occurs, such as when the user denies the location permission
             console.log("Geolocation permission denied.");
             try {
-                const ip = await getIp();
-                const weatherData = await ipWeather(ip);
+                const weatherData = await ipWeather();
+                console.log(weatherData);
                 updateWeather(weatherData, 'Your Location');
                 updateTime(weatherData);
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error:', error); // This error is getting thrown
             }
         }
     );
@@ -51,8 +62,8 @@ if (navigator.geolocation) {
     console.log("Geolocation is not supported by this browser.");
     (async () => {
         try {
-            const ip = await getIp();
-            const weatherData = await ipWeather(ip);
+            const weatherData = await ipWeather();
+            console.log(weatherData);
             updateWeather(weatherData, 'Your Location');
             updateTime(weatherData);
         } catch (error) {
@@ -85,7 +96,9 @@ searchBar.addEventListener('input', async function(event) {
 
     if (userInput.length > 2) { // Trigger autocomplete after 2 char
         try {
-            const response = await fetch(`${API_BASE_URL}/search-locations?input=${encodeURIComponent(userInput)}`);
+            const response = await fetch(`${API_BASE_URL}/search-locations?input=${encodeURIComponent(userInput)}`, {
+                credentials: 'include'
+            });
             const data = await response.json();
             dropdown.innerHTML = ''; // Clear previous suggestions
 
@@ -118,7 +131,9 @@ searchForm.addEventListener('submit', async function(event) {
         searchBar.value = '';
 
         // Send a request to the server with the user input
-        const response = await fetch(`${API_BASE_URL}/weather-data?input=${encodeURIComponent(userSubmission)}`);
+        const response = await fetch(`${API_BASE_URL}/weather-data?input=${encodeURIComponent(userSubmission)}`, {
+            credentials: 'include'
+        });
         const weatherData = await response.json();
         
         // Handle the response data here
