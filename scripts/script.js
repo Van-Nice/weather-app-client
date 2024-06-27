@@ -1,7 +1,7 @@
 import { updateWeather } from './weather.js';
 import { updateTime } from './timeDate.js';
 
-const API_BASE_URL = 'https://weather-app-server-d5459d7e5648.herokuapp.com/';
+const API_BASE_URL = 'https://weather-app-server-d5459d7e5648.herokuapp.com';
 async function startWeather(latitude, longitude) {
     try {
         const response = await fetch(`${API_BASE_URL}/start-weather-data?coords=${latitude},${longitude}`);
