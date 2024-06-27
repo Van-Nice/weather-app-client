@@ -92,6 +92,7 @@ body {
 }
 
 #search-form {
+    grid-area: nav;
     width: 400px;
     padding-left: 25px;
 }
@@ -332,6 +333,24 @@ body {
 }
 
 @media (max-width: 600px) {
+    .grid-main {
+        grid-template-rows: [one] auto [two] auto [three] auto [four] auto [five] 100px [six];
+
+    }
+    .navbar-content {
+        flex-direction: column;
+    }
+
+    #search-form {
+        grid-area: nav;
+        width: 300px;
+        padding-bottom: 20px;
+    }
+
+    #dropdown {
+        width: 300px;
+    }
+
     .weekly-body {
         flex-shrink: 1;
         font-size: 16px;
