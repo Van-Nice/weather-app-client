@@ -1,6 +1,6 @@
 # Wilson's Weather App - Front End
 
-Wilson's Weather is a web application designed to provide real-time weather updates based on user location or manual search input. It leverages geolocation for auto-detecting the user's position or allows users to search for a specific location to get weather details.
+Wilson's Weather is a web application designed to provide real-time weather updates based on user location or manual search input. It leverages geolocation for auto-detecting the user's position or allows users to search for a specific location to get weather details. Check it out here: https://wilsons-weather.com
 
 ## Features
 
