@@ -392,8 +392,8 @@ body {
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 800px) {
     .grid-main {
-        grid-template-columns: [one] 1fr [two] 800px [three] 1fr [four];
+        grid-template-columns: [one] 1fr [two] 700px [three] 1fr [four];
     }
 }
